@@ -1,0 +1,9 @@
+{
+  "player_wallet": "~/.config/solana/id.json",
+
+  "devnet": {
+    "url": "https://api.devnet.solana.com",
+    "commitment": "confirmed"
+  }
+  }
+}

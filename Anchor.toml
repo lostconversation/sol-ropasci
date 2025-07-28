@@ -1,0 +1,5 @@
+[programs.devnet]
+rps = "Rps2cNcUBx7nHzYVczht5MkLzbakDvPF9AJcDL6b8Ak"
+
+[provider]
+cluster = "devnet"
