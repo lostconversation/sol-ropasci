@@ -66,8 +66,8 @@ The game uses Program Derived Addresses (PDAs) to securely store game state and 
 1. **Clone the repo**
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/rock-pap-scis.git
-   cd rock-pap-scis
+   git clone https://github.com/lostconversation/sol-ropasci.git
+   cd sol-ropasci
    ```
 
 2. **Install dependencies**
@@ -82,7 +82,7 @@ The game uses Program Derived Addresses (PDAs) to securely store game state and 
 
    ```json
    {
-     "player_wallet": "/Users/you/.config/solana/devnet.json"
+     "player_wallet": "YOUR_WALLET.json"
    }
    ```
 
@@ -97,4 +97,4 @@ The game uses Program Derived Addresses (PDAs) to securely store game state and 
 
 ## 🌐 Network
 
-- **Devnet Only**: This game is for Solana devnet. No real SOL, no mainnet risk!
+- **Devnet Only**: This game is for Solana devnet.
