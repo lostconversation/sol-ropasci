@@ -1,95 +1,100 @@
 # ✊🖐✌️ Rock Paper Scissors on Solana
 
-A lightning-fast, on-chain Rock Paper Scissors game built for Solana devnet!  
-**No setup headaches. No mainnet risk. Just pure, animated fun in your terminal.**
+A lightning-fast, on-chain Rock Paper Scissors game built for Solana devnet!
 
 ---
 
-## 🎮 What Is This?
+## How it Looks
 
-A multiplayer Rock Paper Scissors game where every match is a Solana transaction!  
-Challenge the blockchain, track your stats, and climb the leaderboard—all from your CLI.
-
----
-
-## 🕹️ How It Works
-
-```
-┌──────────────┐      ┌──────────────┐      ┌──────────────┐
-|  👤 YOU      | ---> |  🤖 PROGRAM  | ---> |  ⛓️ SOLANA   |
-|  Pick move   |      |  Verifies    |      |  Stores game |
-|  Confirm tx  |      |  Animates!   |      |  Updates     |
-└──────────────┘      └──────────────┘      └──────────────┘
-```
-
-- **You**: Pick rock, paper, or scissors in your terminal.
-- **Program**: Animates, commits your move, and generates a blockchain-powered opponent.
-- **Solana**: Stores your stats, streaks, and the global leaderboard—forever!
+![Rock Paper Scissors Game](ropasci.jpg)
 
 ---
 
-## 🚀 Features
+## How it Works
 
-- **CLI Animations**: Terminal battles with real-time effects!
-- **On-Chain Stats**: Your wins, losses, and streaks are immortalized on Solana devnet.
-- **Global Leaderboard**: Compete with everyone playing on devnet.
-- **No Authority Needed**: Just your devnet wallet—no admin, no gatekeepers.
-- **Super Simple Setup**: Clone, add wallet, play. That’s it!
-
----
-
-## ⚡ Quick Start
-
-### 1. Clone the Repo
-
-```bash
-git clone https://github.com/YOUR_USERNAME/rock-pap-scis.git
-cd rock-pap-scis
 ```
+┌──────────────────┐      ┌────────────────────────┐      ┌────────────────────┐
+    👤 PLAYER                  🔐 RPS PROGRAM                 📊 RPS PDA
 
-### 2. Add Your Devnet Wallet
-
-Edit `config.json` and paste your Solana devnet wallet path:
-
-```json
-{
-  "player_wallet": "/Users/you/.config/solana/devnet.json"
-}
-```
-
-> **Tip:** Use `solana-keygen new --outfile ~/.config/solana/devnet.json` if you need a wallet.
-
-### 3. Install Dependencies
-
-```bash
-yarn install
-```
-
-### 4. Play!
-
-```bash
-yarn play
+ • Pick move         ◄──►    • Verifies moves        ◄──►    • Game state
+ • Submit tx                 • Updates stats                 • Player stats
+ • Wait for result           • Determines winner             • Winner history
+└──────────────────┘      └────────────────────────┘      └────────────────────┘
+                                      │
+                                      │
+                          ┌────────────────────────┐
+                              👤 PLAYER PDA
+                             • Individual stats
+                             • Wins/Losses
+                             • Streaks
+                          └────────────────────────┘
 ```
 
 ---
 
-## 🛠️ Requirements
+## PDAs
+
+The game uses Program Derived Addresses (PDAs) to securely store game state and player information on-chain:
+
+- **Player PDA**: One PDA per player to store individual statistics (wins, losses, streaks)
+- **Game PDA**: One PDA per game session to store current game state and moves
+- **Global Stats PDA**: One PDA for global leaderboard and overall game statistics
+
+---
+
+## Features
+
+- **On-Chain Game Logic**: Every move is verified and stored on Solana devnet
+- **Player Statistics**: Track your wins, losses, and streaks permanently on-chain
+- **Global Leaderboard**: Compete with players worldwide on devnet
+- **No Authority Required**: Just your devnet wallet—no admin, no gatekeepers
+- **Simple Setup**: Clone, configure wallet, play. That's it!
+
+---
+
+## Play the Game!
+
+### Requirements
 
 - [Node.js](https://nodejs.org/) (v16+)
 - [Yarn](https://yarnpkg.com/)
 - [Solana CLI](https://docs.solana.com/cli/install-solana-cli-tools)
 - [Anchor CLI](https://book.anchor-lang.com/getting-started/installation.html)
 
+### Quick Start
+
+1. **Clone the repo**
+
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/rock-pap-scis.git
+   cd rock-pap-scis
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   yarn install
+   ```
+
+3. **Configure your wallet**
+
+   Edit `config.json` and add your Solana devnet wallet path:
+
+   ```json
+   {
+     "player_wallet": "/Users/you/.config/solana/devnet.json"
+   }
+   ```
+
+   > **Tip:** Use `solana-keygen new --outfile ~/.config/solana/devnet.json` if you need a wallet.
+
+4. **Play!**
+   ```bash
+   yarn play
+   ```
+
 ---
 
 ## 🌐 Network
 
 - **Devnet Only**: This game is for Solana devnet. No real SOL, no mainnet risk!
-
----
-
-## 🏆 Now Go Play!
-
-```bash
-yarn play
-```
